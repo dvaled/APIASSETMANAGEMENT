@@ -18,9 +18,10 @@ public class AssetHistoryController : ControllerBase{
         var assetHistory = await _context.TRN_HIST_ASSET
             .Include(x => x.EMPLOYEE) // Eagerly load the related employee information
             .Where(x => x.ASSETCODE == ASSETCODE)
+            .OrderByDescending(x => x.DATEADDED) // Order the list in descending order
             .ToListAsync();
 
-        if (assetHistory == null)
+        if (assetHistory == null || !assetHistory.Any())
         {
             return Ok("Asset not found");
         }
