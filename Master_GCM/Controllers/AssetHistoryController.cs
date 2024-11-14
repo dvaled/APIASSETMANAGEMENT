@@ -40,7 +40,7 @@ public class AssetHistoryController : ControllerBase{
         _context.TRN_HIST_ASSET.Add(assetHistory);
         await _context.SaveChangesAsync();
 
-        return CreatedAtAction("GetAssetHistory", new { id = assetHistory.IDASSETHISTORY }, assetHistory);
+        return CreatedAtAction("GetAssetHistory", new { ASSETCODE = assetHistory.ASSETCODE }, assetHistory);
     }
     
     [HttpPut("{IDASSETHISTORY}")]
