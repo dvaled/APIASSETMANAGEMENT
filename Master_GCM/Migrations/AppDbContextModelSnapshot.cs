@@ -140,30 +140,10 @@ namespace Master_GCM.Migrations
                     b.Property<DateOnly>("DATEADDED")
                         .HasColumnType("date");
 
-                    b.Property<string>("DEPARTMENT")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("DIRECTORATE")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NAME")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<int>("NIPP")
                         .HasColumnType("integer");
 
                     b.Property<string>("PICADDED")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("POSITION")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("UNIT")
                         .IsRequired()
                         .HasColumnType("text");
 
