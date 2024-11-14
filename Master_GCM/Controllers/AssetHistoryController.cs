@@ -15,16 +15,28 @@ public class AssetHistoryController : ControllerBase{
 
     [HttpGet("{ASSETCODE}")]
     public async Task<ActionResult<List<TRNASSETHISTORYMODEL>>> GetAssetHistory(string ASSETCODE){
-        var assetcode = await _context.TRN_HIST_ASSET.Where(x => x.ASSETCODE == ASSETCODE).ToListAsync();
+        var assetHistory = await _context.TRN_HIST_ASSET
+            .Include(x => x.EMPLOYEE) // Eagerly load the related employee information
+            .Where(x => x.ASSETCODE == ASSETCODE)
+            .ToListAsync();
 
-        if (assetcode == null || !assetcode.Any()){
-            return Ok("No data available yet");
+        if (assetHistory == null)
+        {
+            return Ok("Asset not found");
         }
-        return Ok(assetcode);
+        
+        return Ok(assetHistory);
     }
 
     [HttpPost]
     public async Task<ActionResult<TRNASSETHISTORYMODEL>> PostAssetHistory(TRNASSETHISTORYMODEL assetHistory){
+
+        assetHistory.IDASSETHISTORY = _context.TRN_HIST_ASSET.Max(x => x.IDASSETHISTORY) + 1;
+        assetHistory.PICADDED = "Dava";
+        assetHistory.DATEADDED = DateOnly.FromDateTime(DateTime.Now);
+        assetHistory.EMPLOYEE = null;
+        assetHistory.TRNASSET = null;
+
         _context.TRN_HIST_ASSET.Add(assetHistory);
         await _context.SaveChangesAsync();
 
