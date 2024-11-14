@@ -14,10 +14,7 @@ public class TrnAssetSpecController : ControllerBase{
     [HttpGet("{ASSETCODE}")]
     public async Task<ActionResult<List<TRNASSETSPECMODEL>>> GetAssetSpec(string ASSETCODE){
         var trngetspec = await _context.TRN_DTL_SPEC.Where(x => x.ASSETCODE == ASSETCODE).ToListAsync();
-
-        if (trngetspec == null || !trngetspec.Any()){
-            return NotFound("No Asset Spec Data Available");
-        }
+        
         return Ok(trngetspec);
     }
 
