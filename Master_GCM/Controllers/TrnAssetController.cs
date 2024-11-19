@@ -60,13 +60,10 @@ public class TrnAssetController : ControllerBase
                                     x.EMPLOYEE.NAME.ToLower().Contains(search));
         }
 
-        var totalRecords = await query.CountAsync();
-        var transHardware = await query
-            .Skip((page - 1) * pageSize)
-            .Take(pageSize)
-            .ToListAsync();
+        var transHardware = await query.ToListAsync();
 
-        return Ok(new { TotalRecords = totalRecords, Data = transHardware });
+        // Return the results
+        return Ok(new { Data = transHardware });
     }
 
     [HttpPost]

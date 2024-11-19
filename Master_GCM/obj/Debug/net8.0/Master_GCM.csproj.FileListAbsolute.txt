@@ -340,9 +340,7 @@ C:\Users\LENOVO\APIASSET\Master_GCM\obj\Debug\net8.0\refint\Master_GCM.dll
 C:\Users\LENOVO\APIASSET\Master_GCM\obj\Debug\net8.0\Master_GCM.pdb
 C:\Users\LENOVO\APIASSET\Master_GCM\obj\Debug\net8.0\Master_GCM.genruntimeconfig.cache
 C:\Users\LENOVO\APIASSET\Master_GCM\obj\Debug\net8.0\ref\Master_GCM.dll
-<<<<<<< HEAD
 C:\Users\LENOVO\APIASSET\Master_GCM\obj\Debug\net8.0\Master_GCM.sourcelink.json
-=======
 D:\laragon\www\APIASSETMANAGEMENT\Master_GCM\bin\Debug\net8.0\appsettings.Development.json
 D:\laragon\www\APIASSETMANAGEMENT\Master_GCM\bin\Debug\net8.0\appsettings.json
 D:\laragon\www\APIASSETMANAGEMENT\Master_GCM\bin\Debug\net8.0\Master_GCM.exe
