@@ -33,12 +33,30 @@ public class TrnAssetController : ControllerBase
 
     // Get all hardware
     [HttpGet]
-    public async Task<ActionResult<List<TRNASSETMODEL>>> GetAllAsset()
+    public async Task<ActionResult<List<TRNASSETMODEL>>> GetAllAsset([FromQuery] string? search = null, [FromQuery] int page = 1, [FromQuery] int pageSize = 7)
     {
-        var transHardware = await _context.TRN_ASSET
+        var query = _context.TRN_ASSET
             .Include(x => x.EMPLOYEE)
+            .AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(search))
+        {
+            search = search.ToLower();
+            query = query.Where(x => (x.ASSETBRAND + " " + x.ASSETMODEL + " " + x.ASSETSERIES).ToLower().Contains(search) ||
+                                    x.ASSETCATEGORY.ToLower().Contains(search) ||
+                                    x.ASSETSERIALNUMBER.ToLower().Contains(search) ||
+                                    x.ASSETTYPE.ToLower().Contains(search) ||
+                                    x.CONDITION.ToLower().Contains(search) || 
+                                    x.EMPLOYEE.NAME.ToLower().Contains(search));
+        }
+
+        var totalRecords = await query.CountAsync();
+        var transHardware = await query
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
             .ToListAsync();
-        return Ok(transHardware);
+
+        return Ok(new { TotalRecords = totalRecords, Data = transHardware });
     }
 
     [HttpPost]
