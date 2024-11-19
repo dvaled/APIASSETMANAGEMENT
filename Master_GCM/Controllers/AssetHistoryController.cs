@@ -32,7 +32,12 @@ public class AssetHistoryController : ControllerBase{
     [HttpPost]
     public async Task<ActionResult<TRNASSETHISTORYMODEL>> PostAssetHistory(TRNASSETHISTORYMODEL assetHistory){
 
-        assetHistory.IDASSETHISTORY = _context.TRN_HIST_ASSET.Max(x => x.IDASSETHISTORY) + 1;
+        // assetHistory.IDASSETHISTORY = _context.TRN_HIST_ASSET.Max(x => x.IDASSETHISTORY) + 1;
+
+        var maxIdAssetHistory = await _context.TRN_HIST_ASSET
+            .MaxAsync(e => (int?)e.IDASSETHISTORY) ?? 0;
+        assetHistory.IDASSETHISTORY = maxIdAssetHistory + 1;
+
         assetHistory.PICADDED = "Dava";
         assetHistory.DATEADDED = DateOnly.FromDateTime(DateTime.Now);
         assetHistory.EMPLOYEE = null;
