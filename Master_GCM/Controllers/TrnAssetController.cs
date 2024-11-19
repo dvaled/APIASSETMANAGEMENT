@@ -31,9 +31,19 @@ public class TrnAssetController : ControllerBase
         return Ok(trndtlAsset);
     }
 
-    // Get all hardware
     [HttpGet]
-    public async Task<ActionResult<List<TRNASSETMODEL>>> GetAllAsset([FromQuery] string? search = null, [FromQuery] int page = 1, [FromQuery] int pageSize = 7)
+    public async Task<ActionResult<List<TRNASSETMODEL>>> GetAllAsset()
+    {
+        var trnAsset = await _context.TRN_ASSET
+            .Include(x => x.EMPLOYEE)
+            .ToListAsync();
+
+        return Ok(trnAsset);
+    }
+
+    // Get all hardware
+    [HttpGet("search")]
+    public async Task<ActionResult<List<TRNASSETMODEL>>> GetSearchAsset([FromQuery] string? search = null, [FromQuery] int page = 1, [FromQuery] int pageSize = 7)
     {
         var query = _context.TRN_ASSET
             .Include(x => x.EMPLOYEE)
