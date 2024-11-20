@@ -63,7 +63,7 @@ public class TrnAssetController : ControllerBase
         var transHardware = await query.ToListAsync();
 
         // Return the results
-        return Ok(new { Data = transHardware });
+        return Ok(transHardware);
     }
 
     [HttpPost]
