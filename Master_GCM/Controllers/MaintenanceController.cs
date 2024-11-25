@@ -11,13 +11,18 @@ public class TrnHistMaintenanceController : ControllerBase{
     // Get value from db
     [HttpGet]
     public async Task<ActionResult<List<TRNMAINTENANCEMODEL>>> GetMaintenanceData(){
-        return await _context.TRN_HIST_MAINTENANCE.ToListAsync();
+        return await _context.TRN_HIST_MAINTENANCE
+        .Include(m => m.TRNASSET) // Include the related asset data
+        .ToListAsync();
     }
 
     // Get value by assetcode from db
     [HttpGet("{ASSETCODE}")]
     public async Task<ActionResult<List<TRNMAINTENANCEMODEL>>> GetMaintenanceDataByAssetCode(string ASSETCODE){
-        var trngetmaintenancebyac = await _context.TRN_HIST_MAINTENANCE.Where(e => e.ASSETCODE == ASSETCODE).ToListAsync();
+        var trngetmaintenancebyac = await _context.TRN_HIST_MAINTENANCE
+            .Include(m => m.TRNASSET) // Include the related asset data
+            .Where(e => e.ASSETCODE == ASSETCODE)
+            .ToListAsync();
         if (trngetmaintenancebyac == null)
         {
             return Ok("No Maintenance Data Available");

@@ -30,7 +30,7 @@ public class TrnSoftwareController : ControllerBase{
         trnSoftware.IDASSETSOFTWARE = maxIDSoftware + 1;
 
 
-        trnSoftware.ACTIVE = "y";
+        trnSoftware.ACTIVE = "Y";
         trnSoftware.DATEADDED = DateOnly.FromDateTime(DateTime.Now);
         trnSoftware.DATEUPDATED = null;
         trnSoftware.PICUPDATED = null;
