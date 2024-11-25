@@ -21,7 +21,7 @@ public class TrnAssetController : ControllerBase
         var trndtlAsset = await _context.TRN_ASSET
             .Include(x => x.EMPLOYEE) // Eagerly load the related employee information
             .Where(x => x.ASSETCODE == ASSETCODE)
-            .ToListAsync();
+            .FirstOrDefaultAsync(x => x.ASSETCODE == ASSETCODE);
 
         if (trndtlAsset == null)
         {
