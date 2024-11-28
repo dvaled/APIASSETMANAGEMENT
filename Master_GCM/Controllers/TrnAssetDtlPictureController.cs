@@ -106,6 +106,7 @@ public class TrnAssetDtlPictureController : ControllerBase
         {
             return BadRequest();
         }
+        trnPicture.DATEUPDATED = DateOnly.FromDateTime(DateTime.Now);
 
         _context.Entry(trnPicture).State = EntityState.Modified;
 
