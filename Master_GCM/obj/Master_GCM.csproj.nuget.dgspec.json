@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LENOVO\\APIASSET\\Master_GCM\\Master_GCM.csproj": {}
+    "D:\\laragon\\www\\APIASSETMANAGEMENT\\Master_GCM\\Master_GCM.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LENOVO\\APIASSET\\Master_GCM\\Master_GCM.csproj": {
+    "D:\\laragon\\www\\APIASSETMANAGEMENT\\Master_GCM\\Master_GCM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LENOVO\\APIASSET\\Master_GCM\\Master_GCM.csproj",
+        "projectUniqueName": "D:\\laragon\\www\\APIASSETMANAGEMENT\\Master_GCM\\Master_GCM.csproj",
         "projectName": "Master_GCM",
-        "projectPath": "C:\\Users\\LENOVO\\APIASSET\\Master_GCM\\Master_GCM.csproj",
-        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LENOVO\\APIASSET\\Master_GCM\\obj\\",
+        "projectPath": "D:\\laragon\\www\\APIASSETMANAGEMENT\\Master_GCM\\Master_GCM.csproj",
+        "packagesPath": "C:\\Users\\khalf\\.nuget\\packages\\",
+        "outputPath": "D:\\laragon\\www\\APIASSETMANAGEMENT\\Master_GCM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+          "C:\\Users\\khalf\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> 400168fab62f746421934dc438d61af2dd8d9389
         ],
         "originalTargetFrameworks": [
           "net8.0"

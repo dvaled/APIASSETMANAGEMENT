@@ -43,6 +43,8 @@ public class TrnAssetSpecController : ControllerBase{
         if (IDASSETSPEC != assetSpec.IDASSETSPEC){
             return BadRequest();
         }
+        assetSpec.DATEADDED = null;
+        assetSpec.DATEUPDATED = DateOnly.FromDateTime(DateTime.Now);
 
         _context.Entry(assetSpec).State = EntityState.Modified;
 
@@ -58,7 +60,7 @@ public class TrnAssetSpecController : ControllerBase{
             }
         }
 
-        return NoContent();
+        return CreatedAtAction("GetAssetSpec", new { ASSETCODE = assetSpec.ASSETCODE }, assetSpec);
     }
     private bool AssetSpecExists(int IDASSETSPEC){
         return _context.TRN_DTL_SPEC.Any(e => e.IDASSETSPEC == IDASSETSPEC);

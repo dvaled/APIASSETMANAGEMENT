@@ -44,6 +44,7 @@ public class TrnHistMaintenanceController : ControllerBase{
 
         // Set the foreign key relationship
         maintenance.ASSETCODE = asset.ASSETCODE;
+        maintenance.DATEADDED = DateOnly.FromDateTime(DateTime.Now);
 
         // Check if the maintenance ID already exists
         if (await _context.TRN_HIST_MAINTENANCE.AnyAsync(e => e.MAINTENANCEID == maintenance.MAINTENANCEID))
