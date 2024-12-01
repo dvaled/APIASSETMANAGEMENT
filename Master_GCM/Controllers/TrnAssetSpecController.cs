@@ -18,6 +18,18 @@ public class TrnAssetSpecController : ControllerBase{
         return Ok(trngetspec);
     }
 
+    [HttpGet("{IDASSETSPEC:int}")]
+    public async Task<ActionResult<TRNASSETSPECMODEL>> GetAssetSpec(int IDASSETSPEC){
+        var trngetspec = await _context.TRN_DTL_SPEC.Where(x => x.IDASSETSPEC == IDASSETSPEC).FirstOrDefaultAsync();
+        
+        if (trngetspec == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(trngetspec);
+    }
+
     [HttpPost("{ASSETCODE}")]
     public async Task<ActionResult<TRNASSETSPECMODEL>> PostAssetSpec(string assetcode,TRNASSETSPECMODEL assetSpec)
     {
@@ -43,10 +55,21 @@ public class TrnAssetSpecController : ControllerBase{
         if (IDASSETSPEC != assetSpec.IDASSETSPEC){
             return BadRequest();
         }
-        assetSpec.DATEADDED = null;
+
+        // Get the original entity from the database
+        var existingAssetSpec = await _context.TRN_DTL_SPEC.FindAsync(IDASSETSPEC);
+        if (existingAssetSpec == null)
+        {
+            return NotFound();
+        }
+
+        assetSpec.DATEADDED = existingAssetSpec.DATEADDED;
+
         assetSpec.DATEUPDATED = DateOnly.FromDateTime(DateTime.Now);
 
-        _context.Entry(assetSpec).State = EntityState.Modified;
+        _context.Entry(existingAssetSpec).CurrentValues.SetValues(assetSpec);
+        _context.Entry(existingAssetSpec).Property(x => x.DATEADDED).IsModified = false;
+
 
         try{
             await _context.SaveChangesAsync();
