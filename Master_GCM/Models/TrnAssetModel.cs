@@ -22,6 +22,7 @@ public class TRNASSETMODEL{
     [JsonConverter(typeof(DateOnlyJsonConverter))]
     public DateOnly? DATEUPDATED {get; set;}
     public required string ACTIVE {get; set;}
+    public DateOnly? PURCHASEDATE {get; set;}
     
     [ForeignKey("NIPP")]
     public MSTEMPLOYEEMODEL? EMPLOYEE { get; set; } 
