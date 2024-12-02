@@ -49,7 +49,19 @@ public class TrnSoftwareController : ControllerBase{
             return BadRequest();
         }
 
-        _context.Entry(trnSoftware).State = EntityState.Modified;
+        var existingSoftware = await _context.TRN_DTL_SOFTWARE.FindAsync(IDASSETSOFTWARE);
+        if (existingSoftware == null)
+        {
+            return NotFound();
+        }
+
+        
+        trnSoftware.DATEADDED = existingSoftware.DATEADDED;
+        trnSoftware.DATEUPDATED = DateOnly.FromDateTime(DateTime.Now);
+
+        _context.Entry(existingSoftware).CurrentValues.SetValues(trnSoftware);
+        _context.Entry(existingSoftware).Property(x => x.DATEADDED).IsModified = false;
+
 
         try
         {
