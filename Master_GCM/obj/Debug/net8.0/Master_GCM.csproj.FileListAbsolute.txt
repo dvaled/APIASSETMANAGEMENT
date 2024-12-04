@@ -381,6 +381,7 @@ C:\Users\LENOVO\APIASSET\Master_GCM\bin\Debug\net8.0\System.Composition.Hosting.
 C:\Users\LENOVO\APIASSET\Master_GCM\bin\Debug\net8.0\System.Composition.Runtime.dll
 C:\Users\LENOVO\APIASSET\Master_GCM\bin\Debug\net8.0\System.Composition.TypedParts.dll
 C:\Users\LENOVO\APIASSET\Master_GCM\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\LENOVO\APIASSET\Master_GCM\bin\Debug\net8.0\System.Text.Json.dll
 C:\Users\LENOVO\APIASSET\Master_GCM\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\LENOVO\APIASSET\Master_GCM\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
 C:\Users\LENOVO\APIASSET\Master_GCM\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -449,7 +450,7 @@ C:\Users\LENOVO\APIASSET\Master_GCM\obj\Debug\net8.0\staticwebassets\msbuild.bui
 C:\Users\LENOVO\APIASSET\Master_GCM\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Master_GCM.props
 C:\Users\LENOVO\APIASSET\Master_GCM\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\LENOVO\APIASSET\Master_GCM\obj\Debug\net8.0\scopedcss\bundle\Master_GCM.styles.css
-C:\Users\LENOVO\APIASSET\Master_GCM\obj\Debug\net8.0\Master_GCM.csproj.Up2Date
+C:\Users\LENOVO\APIASSET\Master_GCM\obj\Debug\net8.0\Master_GCM.csproj.CopyComplete
 C:\Users\LENOVO\APIASSET\Master_GCM\obj\Debug\net8.0\Master_GCM.dll
 C:\Users\LENOVO\APIASSET\Master_GCM\obj\Debug\net8.0\refint\Master_GCM.dll
 C:\Users\LENOVO\APIASSET\Master_GCM\obj\Debug\net8.0\Master_GCM.pdb
