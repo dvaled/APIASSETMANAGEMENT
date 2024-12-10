@@ -229,6 +229,7 @@ D:\laragon\www\KAPMASSETAP1\Master_GCM\obj\Debug\net8.0\Master_GCM.pdb
 D:\laragon\www\KAPMASSETAP1\Master_GCM\obj\Debug\net8.0\Master_GCM.genruntimeconfig.cache
 D:\laragon\www\KAPMASSETAP1\Master_GCM\obj\Debug\net8.0\ref\Master_GCM.dll
 >>>>>>> 48fd924c575dbf86278e365f487b4d7e8dab55ea
+<<<<<<< HEAD
 D:\laragon\www\APIASSETMANAGEMENT\Master_GCM\obj\Debug\net8.0\Master_GCM.csproj.AssemblyReference.cache
 D:\laragon\www\APIASSETMANAGEMENT\Master_GCM\obj\Debug\net8.0\Master_GCM.GeneratedMSBuildEditorConfig.editorconfig
 D:\laragon\www\APIASSETMANAGEMENT\Master_GCM\obj\Debug\net8.0\Master_GCM.AssemblyInfoInputs.cache
@@ -455,3 +456,5 @@ C:\Users\LENOVO\APIASSET\Master_GCM\obj\Debug\net8.0\refint\Master_GCM.dll
 C:\Users\LENOVO\APIASSET\Master_GCM\obj\Debug\net8.0\Master_GCM.pdb
 C:\Users\LENOVO\APIASSET\Master_GCM\obj\Debug\net8.0\Master_GCM.genruntimeconfig.cache
 C:\Users\LENOVO\APIASSET\Master_GCM\obj\Debug\net8.0\ref\Master_GCM.dll
+=======
+>>>>>>> 9f8505bf0d9f185e46fc6ff2b694a522fe11fa8d

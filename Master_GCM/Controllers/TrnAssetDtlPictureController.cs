@@ -49,7 +49,9 @@ public class TrnAssetDtlPictureController : ControllerBase
             // Update asset properties
             existingAsset.ACTIVE = model.ACTIVE;
             existingAsset.PICADDED = model.PICADDED;
-            existingAsset.DATEADDED = DateOnly.FromDateTime(DateTime.Now);
+            existingAsset.PICUPDATED = model.PICUPDATED;
+            existingAsset.DATEUPDATED = DateOnly.FromDateTime(DateTime.Now);
+            // existingAsset.DATEADDED = DateOnly.FromDateTime(DateTime.Now);
 
             // Handle file upload if a new image is provided
             if (model.ASSETIMG != null && model.ASSETIMG.Count > 0)
@@ -178,6 +180,7 @@ public class TrnAssetDtlPictureController : ControllerBase
                             ACTIVE = model.ACTIVE,  
                             ASSETPIC = relativePath,  
                             PICADDED = model.PICADDED,  
+                            PICUPDATED = model.PICUPDATED,  
                             DATEADDED = DateOnly.FromDateTime(DateTime.Now)  
                         };
 
