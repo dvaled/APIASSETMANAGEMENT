@@ -61,10 +61,10 @@ public class TrnAssetController : ControllerBase
                                     x.ASSETCODE.ToLower().Contains(search));
         }
 
-        var transHardware = await query.ToListAsync();
+        var transAsset = await query.ToListAsync();
 
         // Return the results
-        return Ok(transHardware);
+        return Ok(transAsset);
     }
 
     [HttpPost]
