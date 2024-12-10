@@ -54,7 +54,7 @@ public class TrnAssetDtlPictureController : ControllerBase
             // Handle file upload if a new image is provided
             if (model.ASSETIMG != null && model.ASSETIMG.Count > 0)
             {
-                var folderName = @"\\10.1.4.199\ProjectAplikasi\AssetManagementSystem\Image\Asset"; 
+                var folderName = @"/10.1.4.199/ProjectAplikasi/AssetManagementSystem/Image/Asset"; 
                 var pathToSave = folderName;
 
                 if (!Directory.Exists(pathToSave))
@@ -130,7 +130,7 @@ public class TrnAssetDtlPictureController : ControllerBase
             if (model.ASSETIMG != null && model.ASSETIMG.Count > 0)
             {
                 
-                var folderName = @"\\10.1.4.199\ProjectAplikasi\AssetManagementSystem\Image\Asset"; 
+                var folderName = @"/10.1.4.199/ProjectAplikasi/AssetManagementSystem/Image/Asset"; 
                 var pathToSave = folderName;
 
                 
