@@ -31,6 +31,7 @@ public class TrnAssetDtlPictureController : ControllerBase
         return Ok(trnassetcode);
     }
 
+
     [HttpPut("{IDASSETPIC}")]
     public async Task<IActionResult> UpdateAssetImage(int IDASSETPIC, [FromForm] AssetViewModel model)
     {
@@ -115,6 +116,10 @@ public class TrnAssetDtlPictureController : ControllerBase
 
         return Ok(trngetspec);
     }
+    private bool TrnPictureExists(int IDASSETPIC)
+    {
+        return _context.TRN_DTL_PICTURE.Any(e => e.IDASSETPIC == IDASSETPIC);
+    }
 
     [HttpPost]
     [Consumes("multipart/form-data")]
@@ -197,9 +202,5 @@ public class TrnAssetDtlPictureController : ControllerBase
         {
             return StatusCode(500, $"Internal server error: {ex.Message}");
         }
-    }
-    private bool TrnPictureExists(int IDASSETPIC)
-    {
-        return _context.TRN_DTL_PICTURE.Any(e => e.IDASSETPIC == IDASSETPIC);
     }
 }

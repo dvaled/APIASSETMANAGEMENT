@@ -76,6 +76,18 @@ public class TrnSoftwareController : ControllerBase{
         }
         return Ok(trnSoftware);
     }
+
+      [HttpGet("{IDASSETSOFTWARE:int}")]
+    public async Task<ActionResult<TRNSOFTWAREMODEL>> GetIdSoftware(int IDASSETSOFTWARE){
+        var trngetspec = await _context.TRN_DTL_SOFTWARE.Where(x => x.IDASSETSOFTWARE == IDASSETSOFTWARE).FirstOrDefaultAsync();
+        
+        if (trngetspec == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(trngetspec);
+    }
     private bool SoftwarerExists(int idAssetSoftware){
         return _context.TRN_DTL_SOFTWARE.Any(e => e.IDASSETSOFTWARE == idAssetSoftware);
 
