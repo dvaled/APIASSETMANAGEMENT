@@ -64,11 +64,13 @@ public class TrnAssetSpecController : ControllerBase{
         }
 
         assetSpec.DATEADDED = existingAssetSpec.DATEADDED;
+        assetSpec.PICADDED = existingAssetSpec.PICADDED;
 
         assetSpec.DATEUPDATED = DateOnly.FromDateTime(DateTime.Now);
 
         _context.Entry(existingAssetSpec).CurrentValues.SetValues(assetSpec);
         _context.Entry(existingAssetSpec).Property(x => x.DATEADDED).IsModified = false;
+        _context.Entry(existingAssetSpec).Property(x => x.PICADDED).IsModified = false;
 
 
         try{
