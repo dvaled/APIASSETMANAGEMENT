@@ -14,4 +14,21 @@ public class EmployeeController : ControllerBase{
     public async Task<ActionResult<IEnumerable<MSTEMPLOYEEMODEL>>> GetEmployee(){
     return await _context.MST_EMPLOYEE.ToListAsync();
     }
+
+    [HttpGet("search")]
+    public async Task<ActionResult<List<MSTEMPLOYEEMODEL>>> SearchEmployees(string? search)
+    {
+        var query = _context.MST_EMPLOYEE.AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(search))
+        {
+            search = search.ToLower();
+            query = query.Where(x => x.NAME.ToLower().Contains(search));
+        }
+
+        var employees = await query.ToListAsync();
+
+        return Ok(employees);
+    }
+       
 }
