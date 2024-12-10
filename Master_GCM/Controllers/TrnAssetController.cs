@@ -92,6 +92,7 @@ public class TrnAssetController : ControllerBase
             assetCategoryInitial = trnAsset.ASSETCATEGORY[..1].ToUpper(); // First letter of ASSETCATEGORY
         }  
         string addedDateStr = trnAsset.ADDEDDATE.ToString("yyMM"); // Format ADDEDDATE as YYYYMMDD
+        
         trnAsset.ASSETCODE = $"{trnAsset.ASSETTYPE}{assetCategoryInitial}{addedDateStr}0{trnAsset.IDASSET}";
         trnAsset.EMPLOYEE = null;
 
@@ -156,9 +157,9 @@ public class TrnAssetController : ControllerBase
         existingAsset.CONDITION = trnAsset.CONDITION;
         existingAsset.DATEUPDATED = DateOnly.FromDateTime(DateTime.Now);
         existingAsset.PICUPDATED = trnAsset.PICUPDATED;
+        existingAsset.PURCHASEDATE = trnAsset.PURCHASEDATE;
         existingAsset.ACTIVE = trnAsset.ACTIVE;
         
-
         try
         {
             await _context.SaveChangesAsync();
