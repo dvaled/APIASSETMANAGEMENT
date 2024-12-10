@@ -31,103 +31,6 @@ public class TrnAssetDtlPictureController : ControllerBase
         return Ok(trnassetcode);
     }
 
-        // [HttpPost]
-        // [Consumes("multipart/form-data")]
-        // public async Task<IActionResult> UploadAssetImage([FromForm] AssetViewModel model)
-        // {
-        //     try
-        //     {
-        //         if (model.ASSETIMG != null && model.ASSETIMG.Count > 0)
-        //         {
-        //             foreach (var file in model.ASSETIMG)
-        //             {
-        //                 // Ensure the file is valid
-        //                 if (file.Length > 0)
-        //                 {
-        //                     // Define folder where images will be saved
-        //                     var folderName =  @"\\10.1.4.199\ProjectAplikasi"; 
-        //                     var pathToSave = folderName;                            
-
-        //                     // Create directory if it doesn't exist
-        //                     if (!Directory.Exists(pathToSave))
-        //                         Directory.CreateDirectory(pathToSave);
-
-        //                     // Generate the full path to save the image
-        //                     var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-        //                     var fullPath = Path.Combine(pathToSave, fileName);
-
-        //                     var relativePath = Path.Combine("Images", "Asset", fileName);
-
-        //                     // Save the image to the folder
-        //                     using (var stream = new FileStream(fullPath, FileMode.Create))
-        //                     {
-        //                         // Add before creating the directory
-        //                         Console.WriteLine($"Saving file to: {fullPath}");
-        //                         await file.CopyToAsync(stream);
-        //                     }
-
-        //                     // Save only the file name to the database, not the path
-        //                     var trnPicture = new TRNASSETPICTUREMODEL
-        //                     {
-        //                         ASSETCODE = model.ASSETCODE,
-        //                         ACTIVE = model.ACTIVE,  
-        //                         ASSETPIC = relativePath,  
-        //                         PICADDED = model.PICADDED,  
-        //                         DATEADDED = DateOnly.FromDateTime(DateTime.Now)  
-        //                     };
-
-        //                     // Add image data to the database
-        //                     _context.TRN_DTL_PICTURE.Add(trnPicture);
-        //                     await _context.SaveChangesAsync();
-        //                 }
-        //                 else
-        //                 {
-        //                     return BadRequest("Invalid file.");
-        //                 }
-        //             }
-
-        //             return Ok("File(s) uploaded successfully.");
-        //         }
-        //         else
-        //         {
-        //             return BadRequest("No files uploaded.");
-        //         }
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         return StatusCode(500, $"Internal server error: {ex.Message}");
-        //     }
-        // }
-
-    // [HttpPut("{IDASSETPIC}")]
-    // public async Task<IActionResult> PutImg(int IDASSETPIC, TRNASSETPICTUREMODEL trnPicture)
-    // {
-    //     if (IDASSETPIC != trnPicture.IDASSETPIC)
-    //     {
-    //         return BadRequest();
-    //     }
-    //     trnPicture.DATEUPDATED = DateOnly.FromDateTime(DateTime.Now);
-
-    //     _context.Entry(trnPicture).State = EntityState.Modified;
-
-    //     try
-    //     {
-    //         await _context.SaveChangesAsync();
-    //     }
-    //     catch (DbUpdateConcurrencyException)
-    //     {
-    //         if (!TrnPictureExists(IDASSETPIC))
-    //         {
-    //             return Ok("Asset not Found");
-    //         }
-    //         else
-    //         {
-    //             throw;
-    //         }
-    //     }
-
-    //     return NoContent();
-    // }
 
     [HttpPut("{IDASSETPIC}")]
     public async Task<IActionResult> UpdateAssetImage(int IDASSETPIC, [FromForm] AssetViewModel model)
@@ -151,7 +54,7 @@ public class TrnAssetDtlPictureController : ControllerBase
             // Handle file upload if a new image is provided
             if (model.ASSETIMG != null && model.ASSETIMG.Count > 0)
             {
-                var folderName = @"\\10.1.4.199\ProjectAplikasi\AssetManagementSystem\Image\Asset"; 
+                var folderName = @"/network_share/AssetManagementSystem/Image/Asset"; 
                 var pathToSave = folderName;
 
                 if (!Directory.Exists(pathToSave))
@@ -227,7 +130,7 @@ public class TrnAssetDtlPictureController : ControllerBase
             if (model.ASSETIMG != null && model.ASSETIMG.Count > 0)
             {
                 
-                var folderName = @"\\10.1.4.199\ProjectAplikasi\AssetManagementSystem\Image\Asset"; 
+                var folderName = @"/network_share/AssetManagementSystem/Image/Asset"; 
                 var pathToSave = folderName;
 
                 
