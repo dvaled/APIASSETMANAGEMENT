@@ -50,18 +50,6 @@ public class TrnAssetSpecController : ControllerBase{
         return CreatedAtAction("GetAssetSpec", new { ASSETCODE = assetSpec.ASSETCODE }, assetSpec);
     }
 
-    [HttpGet("{IDASSETSPEC:int}")]
-    public async Task<ActionResult<TRNASSETSPECMODEL>> GetAssetSpec(int IDASSETSPEC){
-        var trngetspec = await _context.TRN_DTL_SPEC.Where(x => x.IDASSETSPEC == IDASSETSPEC).FirstOrDefaultAsync();
-        
-        if (trngetspec == null)
-        {
-            return NotFound();
-        }
-
-        return Ok(trngetspec);
-    }
-
     [HttpPut("{IDASSETSPEC}")]
     public async Task<IActionResult> PutAssetSpec(int IDASSETSPEC, TRNASSETSPECMODEL assetSpec){
         if (IDASSETSPEC != assetSpec.IDASSETSPEC){
