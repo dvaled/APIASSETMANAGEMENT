@@ -57,7 +57,8 @@ public class TrnAssetController : ControllerBase
                                     x.ASSETSERIALNUMBER.ToLower().Contains(search) ||
                                     x.ASSETTYPE.ToLower().Contains(search) ||
                                     x.CONDITION.ToLower().Contains(search) || 
-                                    x.EMPLOYEE.NAME.ToLower().Contains(search));
+                                    x.EMPLOYEE.NAME.ToLower().Contains(search) ||
+                                    x.ASSETCODE.ToLower().Contains(search));
         }
 
         var transHardware = await query.ToListAsync();
@@ -156,6 +157,7 @@ public class TrnAssetController : ControllerBase
         existingAsset.DATEUPDATED = DateOnly.FromDateTime(DateTime.Now);
         existingAsset.PICUPDATED = trnAsset.PICUPDATED;
         existingAsset.ACTIVE = trnAsset.ACTIVE;
+        
 
         try
         {

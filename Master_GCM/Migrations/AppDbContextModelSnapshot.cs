@@ -213,6 +213,9 @@ namespace Master_GCM.Migrations
                     b.Property<string>("PICUPDATED")
                         .HasColumnType("text");
 
+                    b.Property<DateOnly?>("PURCHASEDATE")
+                        .HasColumnType("date");
+
                     b.HasKey("IDASSET");
 
                     b.HasIndex("NIPP");

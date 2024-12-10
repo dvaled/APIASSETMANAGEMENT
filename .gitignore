@@ -1,3 +1,8 @@
+
+*/.vs
+*/Backup
+*/UpgradeLog.htm
+
 Master_GCM/bin/Debug/net8.0/appsettings.json
 Master_GCM/bin/Debug/net8.0/Humanizer.dll
 Master_GCM/bin/Debug/net8.0/Master_GCM.deps.json
