@@ -180,7 +180,7 @@ public class TrnAssetDtlPictureController : ControllerBase
                             ACTIVE = model.ACTIVE,  
                             ASSETPIC = relativePath,  
                             PICADDED = model.PICADDED,  
-                            PICUPDATED = model.PICUPDATED,  
+                            PICUPDATED = null,  
                             DATEADDED = DateOnly.FromDateTime(DateTime.Now)  
                         };
 

@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "yKxG+WeQv1c=",
-=======
   "dgSpecHash": "Ud8m4w/APUA=",
->>>>>>> 9f8505bf0d9f185e46fc6ff2b694a522fe11fa8d
   "success": true,
   "projectFilePath": "D:\\laragon\\www\\APIASSETMANAGEMENT\\Master_GCM\\Master_GCM.csproj",
   "expectedPackageFiles": [
@@ -64,5 +60,12 @@
     "C:\\Users\\khalf\\.nuget\\packages\\system.text.json\\8.0.4\\system.text.json.8.0.4.nupkg.sha512",
     "C:\\Users\\khalf\\.nuget\\packages\\system.threading.channels\\6.0.0\\system.threading.channels.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\laragon\\www\\APIASSETMANAGEMENT\\Master_GCM\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
