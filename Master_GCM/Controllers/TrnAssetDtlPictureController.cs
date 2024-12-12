@@ -56,7 +56,7 @@ public class TrnAssetDtlPictureController : ControllerBase
             // Handle file upload if a new image is provided
             if (model.ASSETIMG != null && model.ASSETIMG.Count > 0)
             {
-                var folderName = @"/var/www/APIASSET/network_share/AssetManagementSystem/Image/Asset"; 
+                var folderName = @"/network_share/AssetManagementSystem/Image/Asset"; 
                 var pathToSave = folderName;
 
                 if (!Directory.Exists(pathToSave))
@@ -132,7 +132,7 @@ public class TrnAssetDtlPictureController : ControllerBase
             if (model.ASSETIMG != null && model.ASSETIMG.Count > 0)
             {
                 
-                var folderName = @"/var/www/APIASSET/network_share/AssetManagementSystem/Image/Asset"; 
+                var folderName = @"/network_share/AssetManagementSystem/Image/Asset"; 
                 var pathToSave = folderName;
 
                 
@@ -180,7 +180,7 @@ public class TrnAssetDtlPictureController : ControllerBase
                             ACTIVE = model.ACTIVE,  
                             ASSETPIC = relativePath,  
                             PICADDED = model.PICADDED,  
-                            PICUPDATED = model.PICUPDATED,  
+                            PICUPDATED = null,  
                             DATEADDED = DateOnly.FromDateTime(DateTime.Now)  
                         };
 
