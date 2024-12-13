@@ -57,10 +57,12 @@ public class TrnSoftwareController : ControllerBase{
 
         
         trnSoftware.DATEADDED = existingSoftware.DATEADDED;
+        trnSoftware.PICADDED = existingSoftware.PICADDED;
         trnSoftware.DATEUPDATED = DateOnly.FromDateTime(DateTime.Now);
 
         _context.Entry(existingSoftware).CurrentValues.SetValues(trnSoftware);
         _context.Entry(existingSoftware).Property(x => x.DATEADDED).IsModified = false;
+        _context.Entry(existingSoftware).Property(x => x.PICADDED).IsModified = false;
 
 
         try

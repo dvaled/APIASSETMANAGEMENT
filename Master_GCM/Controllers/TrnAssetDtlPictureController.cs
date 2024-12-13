@@ -48,7 +48,8 @@ public class TrnAssetDtlPictureController : ControllerBase
 
             // Update asset properties
             existingAsset.ACTIVE = model.ACTIVE;
-            existingAsset.PICADDED = model.PICADDED;
+            existingAsset.PICADDED = existingAsset.PICADDED;
+            existingAsset.DATEADDED = existingAsset.DATEADDED;
             existingAsset.PICUPDATED = model.PICUPDATED;
             existingAsset.DATEUPDATED = DateOnly.FromDateTime(DateTime.Now);
             // existingAsset.DATEADDED = DateOnly.FromDateTime(DateTime.Now);
@@ -96,6 +97,11 @@ public class TrnAssetDtlPictureController : ControllerBase
             }
 
             // Save changes to the database
+
+
+            _context.Entry(existingSoftware).Property(x => x.DATEADDED).IsModified = false;
+            _context.Entry(existingSoftware).Property(x => x.PICADDED).IsModified = false;
+
             _context.TRN_DTL_PICTURE.Update(existingAsset);
             await _context.SaveChangesAsync();
 
