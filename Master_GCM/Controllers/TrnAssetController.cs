@@ -36,8 +36,9 @@ public class TrnAssetController : ControllerBase
     {
         var trnAsset = await _context.TRN_ASSET
             .Include(x => x.EMPLOYEE)
+            .OrderByDescending()
             .ToListAsync();
-
+            
         return Ok(trnAsset);
     }
 
