@@ -99,8 +99,8 @@ public class TrnAssetDtlPictureController : ControllerBase
             // Save changes to the database
 
 
-            _context.Entry(existingSoftware).Property(x => x.DATEADDED).IsModified = false;
-            _context.Entry(existingSoftware).Property(x => x.PICADDED).IsModified = false;
+            _context.Entry(existingAsset).Property(x => x.DATEADDED).IsModified = false;
+            _context.Entry(existingAsset).Property(x => x.PICADDED).IsModified = false;
 
             _context.TRN_DTL_PICTURE.Update(existingAsset);
             await _context.SaveChangesAsync();
