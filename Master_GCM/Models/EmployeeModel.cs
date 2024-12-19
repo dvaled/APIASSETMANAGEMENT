@@ -4,7 +4,6 @@ public class MSTEMPLOYEEMODEL{
     public required string NAME { get; set; }
     public required string POSITION { get; set; }
     public required string UNIT { get; set; }
-    public required string DEPARTMENT { get; set; }
-    public required string DIRECTORATE { get; set; }
-    public required string ACTIVE { get; set; }
+    public required string PERSA { get; set; }
+    public required string PAYAREA { get; set; }
 }

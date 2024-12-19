@@ -16,7 +16,7 @@ public class AssetHistoryController : ControllerBase{
     [HttpGet("{ASSETCODE}")]
     public async Task<ActionResult<List<TRNASSETHISTORYMODEL>>> GetAssetHistory(string ASSETCODE){
         var assetHistory = await _context.TRN_HIST_ASSET
-            .Include(x => x.EMPLOYEE) // Eagerly load the related employee information
+            // .Include(x => x.EMPLOYEE) // Eagerly load the related employee information
             .Where(x => x.ASSETCODE == ASSETCODE)
             .OrderByDescending(x => x.DATEADDED) // Order the list in descending order
             .ToListAsync();
@@ -38,9 +38,9 @@ public class AssetHistoryController : ControllerBase{
             .MaxAsync(e => (int?)e.IDASSETHISTORY) ?? 0;
         assetHistory.IDASSETHISTORY = maxIdAssetHistory + 1;
 
-        assetHistory.PICADDED = "Dava";
+        // assetHistory.PICADDED = "Dava";
         assetHistory.DATEADDED = DateOnly.FromDateTime(DateTime.Now);
-        assetHistory.EMPLOYEE = null;
+        // assetHistory.EMPLOYEE = null;
         assetHistory.TRNASSET = null;
 
         _context.TRN_HIST_ASSET.Add(assetHistory);

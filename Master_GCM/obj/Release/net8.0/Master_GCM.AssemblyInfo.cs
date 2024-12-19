@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Master_GCM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d56f036816d584315c71409d7543efc1f78e217d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7e1e9b8d4b5d80186db4268d14424a13a40eb81")]
 [assembly: System.Reflection.AssemblyProductAttribute("Master_GCM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Master_GCM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -19,7 +19,7 @@ public class TrnAssetController : ControllerBase
     public async Task<ActionResult<TRNASSETMODEL>> GetTrnAssetById(string ASSETCODE)
     {
         var trndtlAsset = await _context.TRN_ASSET
-            .Include(x => x.EMPLOYEE) // Eagerly load the related employee information
+            // .Include(x => x.EMPLOYEE) // Eagerly load the related employee information
             .Where(x => x.ASSETCODE == ASSETCODE)
             .FirstOrDefaultAsync(x => x.ASSETCODE == ASSETCODE);
 
@@ -35,7 +35,7 @@ public class TrnAssetController : ControllerBase
     public async Task<ActionResult<List<TRNASSETMODEL>>> GetAllAsset()
     {
         var trnAsset = await _context.TRN_ASSET
-            .Include(x => x.EMPLOYEE)
+            // .Include(x => x.EMPLOYEE)
             .OrderByDescending(x => x.ADDEDDATE)
             .ToListAsync();
 
@@ -47,7 +47,7 @@ public class TrnAssetController : ControllerBase
     public async Task<ActionResult<List<TRNASSETMODEL>>> GetSearchAsset([FromQuery] string? search = null, [FromQuery] int page = 1, [FromQuery] int pageSize = 7)
     {
         var query = _context.TRN_ASSET
-            .Include(x => x.EMPLOYEE)
+            // .Include(x => x.EMPLOYEE)
             .AsQueryable();
 
         if (!string.IsNullOrWhiteSpace(search))
@@ -58,7 +58,6 @@ public class TrnAssetController : ControllerBase
                                     x.ASSETSERIALNUMBER.ToLower().Contains(search) ||
                                     x.ASSETTYPE.ToLower().Contains(search) ||
                                     x.CONDITION.ToLower().Contains(search) || 
-                                    x.EMPLOYEE.NAME.ToLower().Contains(search) ||
                                     x.ASSETCODE.ToLower().Contains(search));
         }
 
@@ -95,7 +94,7 @@ public class TrnAssetController : ControllerBase
         string addedDateStr = trnAsset.ADDEDDATE.ToString("yyMM"); // Format ADDEDDATE as YYYYMMDD
 
         trnAsset.ASSETCODE = $"{trnAsset.ASSETTYPE}{assetCategoryInitial}{addedDateStr}0{trnAsset.IDASSET}";
-        trnAsset.EMPLOYEE = null;
+        // trnAsset.EMPLOYEE = null;
 
 
         // Add Asset

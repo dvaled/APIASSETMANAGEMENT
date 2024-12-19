@@ -6,7 +6,7 @@ public class AppDbContext : DbContext
 
     public DbSet<MASTERMODEL> MST_GCM { get; set; }
     public DbSet<LOGMODEL> TRN_LOG { get; set; }
-    public DbSet<USERMODEL> MST_USER {get; set;}
+    // public DbSet<USERMODEL> MST_USER {get; set;}
     public DbSet<MSTEMPLOYEEMODEL> MST_EMPLOYEE {get; set;}
     public DbSet<TRNSOFTWAREMODEL> TRN_DTL_SOFTWARE {get; set;}
     public DbSet<TRNASSETMODEL> TRN_ASSET {get; set;}
@@ -20,9 +20,8 @@ public class AppDbContext : DbContext
     {
         modelBuilder.Entity<MASTERMODEL>().HasKey(e => e.MASTERID);
         modelBuilder.Entity<LOGMODEL>().HasKey(e => e.LOGID);
-        modelBuilder.Entity<USERMODEL>().HasKey(e => e.NIPP);
-        modelBuilder.Entity<MSTEMPLOYEEMODEL>().HasKey(e => e.NIPP);
         modelBuilder.Entity<TRNASSETMODEL>().HasKey(e => e.IDASSET);
+        modelBuilder.Entity<MSTEMPLOYEEMODEL>().HasKey(e => e.NIPP);
         modelBuilder.Entity<TRNASSETMODEL>().HasAlternateKey(e => e.ASSETCODE);
         modelBuilder.Entity<TRNSOFTWAREMODEL>().HasKey(e => e.IDASSETSOFTWARE);
         modelBuilder.Entity<TRNASSETSPECMODEL>().HasKey(e => e.IDASSETSPEC);
@@ -31,16 +30,16 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<TRNASSETPICTUREMODEL>().HasKey(e =>  e.IDASSETPIC);
         
         
-        modelBuilder.Entity<TRNASSETMODEL>()
-            .HasOne(h => h.EMPLOYEE) // Navigation property
-            .WithMany()
-            .HasForeignKey(h => h.NIPP) // Foreign key relationship
-            .IsRequired(false);
-        modelBuilder.Entity<TRNASSETHISTORYMODEL>()
-            .HasOne(h => h.EMPLOYEE) // Navigation property
-            .WithMany()
-            .HasForeignKey(h => h.NIPP) // Foreign key relationship
-            .IsRequired(false);
+        // modelBuilder.Entity<TRNASSETMODEL>()
+        //     .HasOne(h => h.EMPLOYEE) // Navigation property
+        //     .WithMany()
+        //     .HasForeignKey(h => h.NIPP) // Foreign key relationship
+        //     .IsRequired(false);
+        // modelBuilder.Entity<TRNASSETHISTORYMODEL>()
+        //     .HasOne(h => h.EMPLOYEE) // Navigation property
+        //     .WithMany()
+        //     .HasForeignKey(h => h.NIPP) // Foreign key relationship
+        //     .IsRequired(false);
         modelBuilder.Entity<LOGMODEL>()
             .HasOne(h => h.TRNASSET) // Navigation property
             .WithMany()

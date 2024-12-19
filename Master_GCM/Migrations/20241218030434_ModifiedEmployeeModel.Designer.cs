@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Master_GCM.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241218030434_ModifiedEmployeeModel")]
+    partial class ModifiedEmployeeModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -100,14 +103,6 @@ namespace Master_GCM.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("PAYAREA")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("PERSA")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("POSITION")
                         .IsRequired()
                         .HasColumnType("text");
@@ -143,13 +138,11 @@ namespace Master_GCM.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("STATUS")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.HasKey("IDASSETHISTORY");
 
                     b.HasIndex("ASSETCODE");
+
+                    b.HasIndex("NIPP");
 
                     b.ToTable("TRN_HIST_ASSET");
                 });
@@ -170,6 +163,7 @@ namespace Master_GCM.Migrations
                         .HasColumnType("date");
 
                     b.Property<string>("ASSETBRAND")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("ASSETCATEGORY")
@@ -218,6 +212,8 @@ namespace Master_GCM.Migrations
                         .HasColumnType("date");
 
                     b.HasKey("IDASSET");
+
+                    b.HasIndex("NIPP");
 
                     b.ToTable("TRN_ASSET");
                 });
@@ -501,7 +497,22 @@ namespace Master_GCM.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("MSTEMPLOYEEMODEL", "EMPLOYEE")
+                        .WithMany()
+                        .HasForeignKey("NIPP");
+
+                    b.Navigation("EMPLOYEE");
+
                     b.Navigation("TRNASSET");
+                });
+
+            modelBuilder.Entity("TRNASSETMODEL", b =>
+                {
+                    b.HasOne("MSTEMPLOYEEMODEL", "EMPLOYEE")
+                        .WithMany()
+                        .HasForeignKey("NIPP");
+
+                    b.Navigation("EMPLOYEE");
                 });
 
             modelBuilder.Entity("TRNASSETPICTUREMODEL", b =>

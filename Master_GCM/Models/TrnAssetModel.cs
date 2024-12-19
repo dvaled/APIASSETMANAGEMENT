@@ -9,8 +9,9 @@ public class TRNASSETMODEL{
     public required string ASSETCODE { get; set; }
     public int? NIPP {get; set;}
     public required string ASSETTYPE {get; set;}
+    public required string ASSETCLASS {get; set;}
     public required string ASSETCATEGORY {get; set;}
-    public required string ASSETBRAND {get; set;}
+    public string? ASSETBRAND {get; set;}
     public string? ASSETMODEL {get; set;}
     public string? ASSETSERIES {get; set;}
     public string? ASSETSERIALNUMBER {get; set;}
@@ -24,7 +25,7 @@ public class TRNASSETMODEL{
     public required string ACTIVE {get; set;}
     public DateOnly? PURCHASEDATE {get; set;}
     
-    [ForeignKey("NIPP")]
-    public MSTEMPLOYEEMODEL? EMPLOYEE { get; set; } 
+    // [ForeignKey("NIPP")]
+    // public MSTEMPLOYEEMODEL? EMPLOYEE { get; set; } 
 }
 
